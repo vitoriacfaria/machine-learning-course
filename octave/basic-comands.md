@@ -1,5 +1,5 @@
 # Comandos basicos do Octave
-Segue comandos basicos do octave para execucao dos exercicios.
+Segue comandos basicos do [Octave](http://www.gnu.org/software/octave) para execucao dos exercicios.
   * [Operacoes matematicas basicas](#operacoes-matematicas-basicas)
   * [Operadores logicos](#operadores-logicos)
   * [Atribuicoes de variaveis](#atribuicoes-de-variaveis)
