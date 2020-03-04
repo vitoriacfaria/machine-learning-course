@@ -9,3 +9,4 @@ Cada exercicio esta separado por pastas e deve ser executado usando o [Octave](h
   * [Comandos Basicos](/octave/basic-comands.md)
   * [Comandos de manipulacao](/octave/manipulating-data.md)
   * [Computacao de data](/octave/computing-data.md)
+  * [Geracao de graficos](/octave/plotting-data.md)
