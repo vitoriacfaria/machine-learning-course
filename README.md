@@ -10,3 +10,5 @@ Cada exercicio esta separado por pastas e deve ser executado usando o [Octave](h
   * [Comandos de manipulacao](/octave/manipulating-data.md)
   * [Computacao de data](/octave/computing-data.md)
   * [Geracao de graficos](/octave/plotting-data.md)
+  * [Controles de fluxo e funcoes](/octave/control-statements.md)
+    * [Cost Function](/octave/control-statements.md#cost-function)
