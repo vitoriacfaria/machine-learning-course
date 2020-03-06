@@ -106,6 +106,9 @@ fprintf('\n');
 % not need to be normalized.
 price = 0; % You should change this
 
+new_values = [1650 3];
+new_normalized_values = [1 (new_values-mu)./sigma];
+price = sum(theta'.*new_normalized_values);
 
 % ============================================================
 
@@ -150,8 +153,8 @@ fprintf('\n');
 % Estimate the price of a 1650 sq-ft, 3 br house
 % ====================== YOUR CODE HERE ======================
 price = 0; % You should change this
-
-
+new_values = [1 new_values];
+price = sum(theta'.*new_values);
 % ============================================================
 
 fprintf(['Predicted price of a 1650 sq-ft, 3 br house ' ...

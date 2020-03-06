@@ -26,13 +26,12 @@ sigma = zeros(1, size(X, 2));
 % Hint: You might find the 'mean' and 'std' functions useful.
 %       
 
+mean_of_X_features = mean(X);
+deviation_of_X_features = std(X);
 
-
-
-
-
-
-
+X_norm = (X-mean_of_X_features)./deviation_of_X_features;
+mu =  mean_of_X_features;
+sigma = deviation_of_X_features;
 
 % ============================================================
 
