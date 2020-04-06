@@ -61,24 +61,44 @@ Theta2_grad = zeros(size(Theta2));
 %               the regularization separately and then add them to Theta1_grad
 %               and Theta2_grad from Part 2.
 %
+% y_klasses
+y_klasses = eye(num_labels);
+
+% activations
+ a1 = [ones(m,1) X];
+ z2 = a1*Theta1';
+ a2 = [ones(m,1) sigmoid(z2)];
+ z3 = a2*Theta2';
+ a3 = sigmoid(z3);
+
+% regularization
+first_theta = Theta1(:,2:end);
+second_theta = Theta2(:,2:end);
+
+first_reg = sum(sum(first_theta.^2));
+second_reg = sum(sum(second_theta.^2));
+
+regularization = (lambda/(2*m))*(first_reg+second_reg);
+
+% cost function
+logistic_sum = sum(sum((y_klasses(:,y)*log(a3)+(1-y_klasses(:,y))*log(1-a3)).*y_klasses));
+J = -(1/m)*logistic_sum+regularization;
+
+% gradiente
 
 
+d3 = a3-y_klasses(y,:);
 
+d2 = d3*Theta2(:,2:end).*sigmoidGradient(z2);
 
+delta2 = (d2'*a1)/m;
+delta3 = (d3'*a2)/m;
 
+del2_reg = delta2(:,2:end)+(lambda/m)*Theta1(:,2:end);
+del3_reg = delta3(:,2:end)+(lambda/m)*Theta2(:,2:end);
 
-
-
-
-
-
-
-
-
-
-
-
-
+Theta1_grad = [delta2(:,1) del2_reg];
+Theta2_grad = [delta3(:,1) del3_reg];
 
 % -------------------------------------------------------------
 
@@ -86,6 +106,5 @@ Theta2_grad = zeros(size(Theta2));
 
 % Unroll gradients
 grad = [Theta1_grad(:) ; Theta2_grad(:)];
-
 
 end
