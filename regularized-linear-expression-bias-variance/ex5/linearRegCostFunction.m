@@ -19,16 +19,20 @@ grad = zeros(size(theta));
 %               You should set J to the cost and grad to the gradient.
 %
 
+% Cost Function
+predictions = X*theta;
+sqrErrors = (predictions-y).^2;
 
+regularization = (lambda/(2*m))*sum(theta(2:length(theta)).^2);
+J = 1/(2*m) * sum(sqrErrors)+regularization;
 
+% Gradient
+prediction_error = X*theta - y;
 
+grad_regularization = [0; (lambda/m)*theta(2:length(theta))];
+grad = (1/m)*(X'*prediction_error) + grad_regularization;
 
-
-
-
-
-
-
+% grad = ;
 
 % =========================================================================
 
